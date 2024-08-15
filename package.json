@@ -1,0 +1,21 @@
+{
+  "name": "ugoow-api",
+  "version": "1.0.0",
+  "description": "npm init",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Neudes Semczuk",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/neudessemczuk/ugoow-api/issues"
+  },
+  "homepage": "https://github.com/neudessemczuk/ugoow-api#readme",
+  "dependencies": {
+    "express": "^4.19.2"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.4"
+  }
+}
