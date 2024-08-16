@@ -4,8 +4,15 @@ const express = require('express');
 // Chamar a função express
 const app = express();
 
-// Criar o middleware para receber os dados no corpo da requisição
-app.use(express.json());
+
+
+
+
+
+
+
+// // Criar o middleware para receber os dados no corpo da requisição
+// app.use(express.json());
 
 // Criar a rota listar
 // Endereço para acessar a api através de aplicação externa: http://localhost:8080
