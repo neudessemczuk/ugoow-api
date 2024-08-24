@@ -4,7 +4,7 @@ const express = require('express');
 // Chamar a função express
 const app = express();
 
-
+import usersController from "./controllers/usersController"
 
 
 
@@ -16,32 +16,30 @@ const app = express();
 
 // Criar a rota listar
 // Endereço para acessar a api através de aplicação externa: http://localhost:8080
+
+
+
+
+
+
+
 app.get("/", (req, res) => {
 
     // Retornar texto como resposta
     res.send("Bem-vindo a nossa API.");
 });
 
+
+
+
+
+
+
 // Criar a rota visualizar
 // Endereço para acessar a api através de aplicação externa: http://localhost:8080/users/7?sit=2
-app.get("/users/:id", (req, res) => {
 
-    // http://localhost:8080/users/7
-    const { id } = req.params;
 
-    // http://localhost:8080/users/7?sit=2
-    const { sit } = req.query;
-
-    // Retornar objeto como resposta
-    return res.json({
-        id,
-        name: "Neudes",
-        email: "neudes@neudes.com.br",
-        sit
-    });
-
-    //res.send(`Visualizar: ${id}`);
-});
+app.use("/neudes/users", usersController);
 
 app.post("/users", (req, res) => {
 
