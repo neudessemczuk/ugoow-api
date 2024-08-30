@@ -14,6 +14,14 @@ app.get("/", (req, res) => {
     res.send("Bem-vindo a nossa API.");
 });
 
+
+
+
+
+
+
+
+
 // Criar a rota visualizar
 // Endereço para acessar a api através de aplicação externa: http://localhost:8080/users/7?sit=2
 app.get("/users/:id", (req, res) => {
@@ -77,6 +85,16 @@ app.delete("/users/:id", (req, res) => {
     return res.json({ id });
 
 });
+
+
+
+
+
+
+
+
+
+
 
 // Iniciar o servidor na porta 8080, criar a função utilizando modelo Arrow function para retornar a mensagem de sucesso
 app.listen(8080, () => {
