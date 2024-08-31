@@ -7,6 +7,8 @@ const app = express();
 // Criar o middleware para receber os dados no corpo da requisição
 app.use(express.json());
 
+
+
 // Criar a rota listar
 // Endereço para acessar a api através de aplicação externa: http://localhost:8080
 app.get("/", (req, res) => {
@@ -43,6 +45,11 @@ app.get("/users/:id", (req, res) => {
     //res.send(`Visualizar: ${id}`);
 });
 
+
+
+
+
+
 app.post("/users", (req, res) => {
 
     // Receber os dados enviados no corpo da requisição
@@ -56,6 +63,11 @@ app.post("/users", (req, res) => {
         email: email
     });
 });
+
+
+
+
+
 
 app.put("/users/:id", (req, res) => {
 
