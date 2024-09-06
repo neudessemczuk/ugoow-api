@@ -18,6 +18,8 @@ router.get('/list', async (req, res) => {
     } catch (error) {
         // Em caso de erro, retorna uma mensagem de erro com status 500 (Internal Server Error).
         res.status(500).json({ message: 'Ocorreu um erro interno no servidor.' });
+        console.error('Erro:', error); // Captura e lida com erros
+
     }
 });
 
