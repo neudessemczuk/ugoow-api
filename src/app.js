@@ -15,6 +15,8 @@ import userController from "./controllers/userController.js";
 
 
 
+
+
 // Chama a função express para criar uma aplicação Express
 const app = express(); // Cria uma instância do aplicativo Express
 
