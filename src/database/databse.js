@@ -4,7 +4,6 @@ import mongoose from "mongoose";
 import * as dotenv from 'dotenv';
 // Carrega as variáveis de ambiente do arquivo .env para process.env
 dotenv.config();
-
 // Define uma função assíncrona para conectar ao banco de dados
 const databaseConnection = async () => {
     try {
@@ -19,6 +18,5 @@ const databaseConnection = async () => {
         console.log("Error: ", error.message);
     }
 }
-
 // Exporta a função databaseConnection para que possa ser usada em outros módulos
 export default databaseConnection;
