@@ -21,17 +21,13 @@ app.get("/", (req, res) => {
   res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-app.get("/testdb", async (req, res) => {
-  try {
-      await mongoose.connect(MONGODB);
-      res.status(200).json({ message: "Conexão com o banco de dados bem-sucedida!" });
-  } catch (error) {
-      res.status(500).json({ message: "Erro ao conectar com o banco de dados.", error: error.message });
-  }
-});
+
 
 // Usa o controlador de usuários para gerenciar rotas que começam com "/user"
 app.use("/user", userController); // Redireciona requisições para "/user" para o controlador de usuários
+
+
+
 
 // Define a porta para o servidor a partir das variáveis de ambiente
 const PORT = process.env.PORT; // Obtém a porta do arquivo .env
