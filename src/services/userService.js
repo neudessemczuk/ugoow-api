@@ -24,16 +24,15 @@ export const createUser = async (user) => {
 export const updateUser = async (userId, updatedUserData) => {
     await databaseConnection();
 
-    // Verificar se a nova senha foi fornecida
+    // Verificar se a nova senha foi fornecida e criptografá-la se necessário
     if (updatedUserData.password) {
-        // Criptografar a nova senha usando bcrypt
         updatedUserData.password = bcrypt.hashSync(updatedUserData.password, 10);
     }
 
-    // Verificar se o Email foi atualizado e se já existe um usuário com o mesmo email
+    // Se o e-mail foi atualizado, verifique se já existe um usuário com o mesmo e-mail
     if (updatedUserData.email) {
-        const existingUserWithemail = await User.findOne({ email: updatedUserData.email });
-        if (existingUserWithemail && existingUserWithemail._id.toString() !== userId) {
+        const existingUserWithEmail = await User.findOne({ email: updatedUserData.email });
+        if (existingUserWithEmail && existingUserWithEmail._id.toString() !== userId) {
             throw new Error("Este email já está cadastrado.");
         }
     }
@@ -42,6 +41,8 @@ export const updateUser = async (userId, updatedUserData) => {
     const updatedUser = await User.findByIdAndUpdate(userId, updatedUserData, { new: true });
     return updatedUser;
 };
+
+
 
 
 export const deleteUser = async (userId) => {

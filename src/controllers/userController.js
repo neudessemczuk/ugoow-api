@@ -49,29 +49,23 @@ router.post('/create', async (req, res) => {
 
 // Define uma rota PUT para atualizar um usuário existente. A rota é acionada quando uma requisição PUT é feita para '/geral/usuario/edit/:userId'.
 router.put('/update/:userId', async (req, res) => {
-    // Obtém o ID do usuário a ser atualizado a partir dos parâmetros da URL.
     const userId = req.params.userId;
     try {
-        // Chama a função updateUser para atualizar o usuário com o ID e os dados recebidos no corpo da requisição.
         const updatedUser = await updateUser(userId, req.body);
-        // Retorna o usuário atualizado com status 200 (OK) no formato JSON.
         res.status(200).json(updatedUser);
     } catch (error) {
-        // Adiciona um log detalhado do erro para depuração.
         console.error("Erro ao atualizar usuário:", error);
-        // Verifica se o erro é relacionado a um email já cadastrado.
-        if (error.message.includes('email já está cadastrado')) {
-            // Retorna uma mensagem de erro com status 400 (Bad Request) se o email já estiver no banco.
+        if (error.message.includes('já está cadastrado')) {
             res.status(400).json({ message: 'Já existe um usuário com esse email no banco!' });
         } else if (error.message.includes('required')) {
-            // Retorna uma mensagem de erro com status 400 (Bad Request) se algum campo obrigatório estiver faltando.
             res.status(400).json({ message: 'Informação obrigatória não foi enviada pelo formulário.' });
         } else {
-            // Retorna uma mensagem de erro genérica com status 500 (Internal Server Error) para outros tipos de erro.
             res.status(500).json({ message: 'Ocorreu um erro interno no servidor.' });
         }
     }
 });
+
+
 
 // Define uma rota DELETE para excluir um usuário existente. A rota é acionada quando uma requisição DELETE é feita para '/geral/usuario/:userId'.
 router.delete('/delete/:userId', async (req, res) => {
