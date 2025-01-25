@@ -1,32 +1,33 @@
-// src/models/ModeloUsuario.js
-import mongoose from 'mongoose';
+import mongoose from "mongoose";
 
-const EsquemaUsuario = new mongoose.Schema({
-  nome: {
-    type: String,
-    required: true,
+const EsquemaUsuario = new mongoose.Schema(
+  {
+    nome: {
+      type: String,
+      // required: true,
+    },
+    email: {
+      type: String,
+      required: true,
+      unique: true,
+    },
+    telefone: {
+      type: String,
+      // required: true,
+    },
+    senha: {
+      type: String,
+      required: true,
+    },
+    // nivelAcesso: {
+    //   type: String,
+    //   enum: ["Adm", "SubAdm", "Usuario"],
+    //   default: "Usuario",
+    // },
   },
-  email: {
-    type: String,
-    required: true,
-    unique: true,
-  },
-  telefone: {
-    type: String,
-    required: true,
-  },
-  senha: {
-    type: String,
-    required: true,
-  },
-  nivelAcesso: {
-    type: String,
-    enum: ['Adm', 'SubAdm', 'Usuario'],
-    default: 'Usuario',
-  },
-  
-}, {
-  timestamps: true, // Adiciona createdAt e updatedAt automaticamente
-});
+  {
+    timestamps: true,
+  }
+);
 
-export default mongoose.model('Usuario', EsquemaUsuario);
+export default mongoose.model("Usuario", EsquemaUsuario);
